@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<div class="form">
+  <h1>&#931 &#917 &#935</h1>
+  <form>
+    <input type="url" id="website" name="phoneNumber" placeholder="1112223333" required />
+    <button type="button" onclick="generateQRCode()">
+      Generate QR Code
+    </button>
+  </form>
+
+  <div id="qrcode-container">
+    <div id="qrcode" class="qrcode"></div>
+    <h4>With some styles</h4>
+    <div id="qrcode-2" class="qrcode"></div>
+  </div>
+
+  <script type="text/javascript">
+    function generateQRCode() {
+        allowNumbers = [7034888839,7042424900,8484829387,9802101373,9802983699]
+
+      let phoneNumber = document.getElementById("website").value;
+      if (phoneNumber.length == 10) {
+        for(let i = 0; i < allowNumbers.length; i++){
+            if(phoneNumber == allowNumbers[i]){
+                let qrcodeContainer = document.getElementById("qrcode");
+                qrcodeContainer.innerHTML = "";
+                new QRCode(qrcodeContainer, "https://www.unhingedco.net/");
+                /*With some styles*/
+                let qrcodeContainer2 = document.getElementById("qrcode-2");
+                qrcodeContainer2.innerHTML = "";
+                new QRCode(qrcodeContainer2, {
+                    text: website,
+                    width: 128,
+                    height: 128,
+                    colorDark: "#5868bf",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+        document.getElementById("qrcode-container").style.display = "block";
+            }
+        }
+      } else {
+        alert("INVALID PHONE NUMBER");
+      }
+    }
+  </script>
+</div>
+</body>
+<!--<html>
+    <head>
+        <title>Seb Ep X</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <h1>Seb Ep X</h1><br>
+    <body>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <form>
+            <input type="int" id = "phoneNumber" name = "phoneNumber" placeholder="Phone Number Ex: 1112223333" required/>
+            <button type="button" onclick="generateQRCode()">
+                Generate QR Code
+            </button>
+        </form>
+
+        <script type="text/javascript">
+            //allowNumbers = [7034888839,7042424900,8484829387,9802101373,9802983699];
+
+            function generateQRCode(){
+                let phoneNumber = document.getElementById("phoneNumber").value;
+                if(phoneNumber){
+                    //for(let i = 0; i < allowNumbers.length; i++){
+                        //if(phoneNumber == allowNumbers[i]){
+                            let qrcodeContainer = document.getElementById("qrcode");
+                            qrcodeConatiner.innerHTML = "";
+                            new QRCode(qrcodeConatiner, {
+                                text: "unhingedco.net",
+                                width: 128,
+                                height: 128,
+                                colorDark: "#000000",
+                                colorLight: "#ffffff",
+                                correctLevel: QRcode.CorrectLevel.H
+                            });
+                        //}
+                    //}
+                    //alert("ERROR, INELIGIBLE FOR QR CODE");
+                }
+                alert("ENTER VALID NUMBER");
+            }
+        </script>
+        <button onclick="myFunction()">
+            Continue
+        </button>
+        <p id = "down"></p>
+        <script>
+            var down = document.getElementById("down");
+
+            var br = document.getElementById("br");
+
+            function myFunction(){
+                var form = document.createElement("form");
+                form.setAttribute("method", "post");
+                form.setAttribute("action", "submit.php");
+
+                var FN = document.createElement("input");
+                FN.setAttribute("type", "text");
+                FN.setAttribute("name", "FullName");
+                FN.setAttribute("placeholder", "Full Name");
+
+                var PN = document.createElement("input");
+                PN.setAttribute("type", "int");
+                PN.setAttribute("name", "phoneNumber");
+                PN.setAttribute("placeholder", "Phone Number");
+
+                var s = document.createElement("input");
+                s.setAttribute("type", "submit");
+                s.setAttribute("value", "Submit");
+
+                form.appendChild(FN);
+
+                form.appendChild(br.cloneNode());
+
+                form.appendChild(PN);
+
+                form.appendChild(br.cloneNode());
+
+                form.appendChild(s);
+
+                document.getElementsByTagName("body")[0].appendChild(form);
+
+            }
+        </script>-->
+        <!--<form>
+            <label for = "number">Enter Number:</label><br>
+            <input type="string" id = "number" name = "number"/><br>
+            <button onclick = "verificationFunction(number)">Submit</button>
+            <script>
+                numAllow = ["7034888839","7042424900","8484829387","9802101373","9802983699"];
+            function verificationFunction(number){
+                var status = "";
+                if (number == null){
+                    //document.write("ENTER NUMBER".fontcolor(color= white));
+                    status = "ENTER NUMBER";
+                    break;
+                }
+                for(let i = 0; i < numAllow.length; i++){
+                    if (number == numAllow[i]){
+                        //document.write("Access Granted".fontcolor(color= white));
+                        status = "ACCESS GRANTED";
+                        break;
+                        }
+                    else if (i == numAllow.length - 1 && number != numAllow[i]){
+                        //document.write("NOT ON LIST".fontcolor(color= white));
+                        status = "NOT ON LIST"
+                        break;
+                    }
+                }
+                //document.write(status.fontcolor(color = white));
+                return status;
+            }
+            </script>
+        </form>-->
+        <!--<script>
+            var number = window.prompt("Enter Number");
+            numAllow = ["7034888839","7042424900","8484829387"];
+            
+            for(let i = 0; i < numAllow.length; i++){
+                if (number == numAllow[i]){
+                    console.log("Access Granted");
+                    break;
+                }
+                else if (i == numAllow.length - 1 && number != numAllow[i]){
+                    console.log("NOT ON LIST");
+                }
+            }
+        </script>-->
+    <!--</body>
+        <body>
+        <div class = "main-container">
+            <div class = "header">
+                <h1>unhinged</h1>
+                <div class = "homepage-line">
+                    <hr>
+                </div>
+                <ul class = "homepage-nav-bar">
+                    <li class = "nav-bar-item"><a class = "home-nav-bar-item" href = "politics.html">Politics</a></li>
+                    <li class = "nav-bar-item"><a class = "home-nav-bar-item" href = "fashion.html">Fashion</a></li>
+                </ul>
+            </div>
+            <div class = "main-content">
+                <p>news stuff</p>
+                <div class = "update-slide">
+                    <div class = "slides fade">
+                        <div class = "number-text">
+                            1/3
+                        </div>
+                        <img src = "im-99078.jpeg" style = "width: 100%">
+                        <div class = "caption-text">
+                            The Stock Market, Reddit, Discord, and Shorting
+                        </div>
+                    </div>
+                    <div class = "slides fade">
+                        <div class = "number-text">
+                            2/3
+                        </div>
+                        <img src = "ee63c3bf45a96c0d5ac498ba64dedc94.jpg" style = "width: 100%">
+                        <div class = "caption-text">
+                            Keeping Up With The First 100
+                        </div>
+                    </div>
+                    <div class = "slides fade">
+                        <div class = "number-text">
+                            3/3
+                        </div>
+                        <img src = "22102.jpeg" style = "width: 100%">
+                        <div class = "caption-text">
+                            COVID-19 Updates
+                        </div>
+                    </div>
+                    <a class = "prev" onclick = "plusSlides(-1)">&#10094;</a>
+                    <a class = "next" onclick = "plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                </div>
+                <script>
+                    var slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        var i;
+                        var slideArray = document.getElementsByClassName("slides");
+                        var dots = document.getElementsByClassName("dot");
+                        if (n > slideArray.length) {slideIndex = 1}    
+                        if (n < 1) {slideIndex = slideArray.length}
+                        for (i = 0; i < slideArray.length; i++) {
+                            slideArray[i].style.display = "none";  
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slideArray[slideIndex-1].style.display = "block";  
+                        dots[slideIndex-1].className += " active";
+                    }
+                </script>
+            </div>
+        </div>
+    </body>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--</html>-->
