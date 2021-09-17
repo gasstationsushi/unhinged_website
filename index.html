@@ -19,7 +19,7 @@
 
   <script type="text/javascript">
     function generateQRCode() {
-        allowNumbers = [7034888839,7042424900,8484829387,9802101373,9802983699]
+        allowNumbers = [7034888839,7042424900,8484829387,9802101373,9802983699,7049054561]
 
       let phoneNumber = document.getElementById("website").value;
       if (phoneNumber.length == 10) {
@@ -27,7 +27,7 @@
             if(phoneNumber == allowNumbers[i]){
                 let qrcodeContainer = document.getElementById("qrcode");
                 qrcodeContainer.innerHTML = "";
-                new QRCode(qrcodeContainer, "https://www.unhingedco.net/");
+                new QRCode(qrcodeContainer, "https://www.unhingedco.net/admit.html");
                 /*With some styles*/
                 let qrcodeContainer2 = document.getElementById("qrcode-2");
                 qrcodeContainer2.innerHTML = "";
