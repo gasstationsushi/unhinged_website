@@ -1,0 +1,51 @@
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+<div class="form">
+  <h1>&#931 &#917 &#935</h1>
+  <form>
+    <input type="url" id="website" name="phoneNumber" placeholder="1112223333" required />
+    <button type="button" onclick="generateQRCode()">
+      Generate QR Code
+    </button>
+  </form>
+
+  <div id="qrcode-container">
+    <div id="qrcode" class="qrcode"></div>
+    <h4>With some styles</h4>
+    <div id="qrcode-2" class="qrcode"></div>
+  </div>
+
+  <script type="text/javascript">
+    function generateQRCode() {
+        allowNumbers = [7034888839,7042424900,8484829387,9802101373,9802983699]
+
+      let phoneNumber = document.getElementById("website").value;
+      if (phoneNumber.length == 10) {
+        for(let i = 0; i < allowNumbers.length; i++){
+            if(phoneNumber == allowNumbers[i]){
+                let qrcodeContainer = document.getElementById("qrcode");
+                qrcodeContainer.innerHTML = "";
+                new QRCode(qrcodeContainer, "https://www.unhingedco.net/admit.html");
+                /*With some styles*/
+                let qrcodeContainer2 = document.getElementById("qrcode-2");
+                qrcodeContainer2.innerHTML = "";
+                new QRCode(qrcodeContainer2, {
+                    text: website,
+                    width: 128,
+                    height: 128,
+                    colorDark: "#5868bf",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+        document.getElementById("qrcode-container").style.display = "block";
+            }
+        }
+      } else {
+        alert("INVALID PHONE NUMBER");
+      }
+    }
+  </script>
+</div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</body>
